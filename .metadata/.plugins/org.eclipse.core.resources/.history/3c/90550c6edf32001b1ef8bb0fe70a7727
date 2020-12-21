@@ -1,0 +1,12 @@
+package com.rk.sringboot.filehandler;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FileHandlerApp {
+	public static void main(String[] args) {
+		SpringApplication.run(FileHandlerApp.class, args);
+	}
+
+}

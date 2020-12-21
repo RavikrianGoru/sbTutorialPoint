@@ -1,0 +1,5 @@
+package com.rk.springboot.sample.interceptor;
+
+public class ProductServiceInterceptorAppConfig {
+
+}

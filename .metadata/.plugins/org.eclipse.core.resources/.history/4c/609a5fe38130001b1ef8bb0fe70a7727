@@ -1,0 +1,8 @@
+package com.rk.springboot.sample.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
+public class ProductExceptionController {
+//The @ControllerAdvice is an annotation, to handle the exceptions globally.
+}

@@ -1,0 +1,8 @@
+package com.rk.springboot.interceptor;
+
+@SpringBootApplication
+public class SpringBootApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootHelloWorldApplication.class, args);
+	}
+}

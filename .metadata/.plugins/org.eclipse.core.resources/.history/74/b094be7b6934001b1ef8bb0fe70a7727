@@ -1,0 +1,22 @@
+package com.rk.springboot.consumeRws;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ViewController {
+
+	@CrossOrigin(origins = "http://localhost:8080")
+	@RequestMapping("/view")
+	public String viewProducts()
+	{
+		return "view-products";
+	}
+	
+	@RequestMapping("/add")
+	public String addProduct()
+	{
+		return "add-product";
+	}
+}

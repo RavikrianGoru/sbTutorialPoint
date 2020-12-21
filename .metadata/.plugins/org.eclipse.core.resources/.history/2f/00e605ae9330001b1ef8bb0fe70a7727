@@ -1,0 +1,40 @@
+package com.rk.springboot.sample.interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+//Intercept the before and after controller execution, log the start and end of the execution time, save it into the existing intercepted controller’s modelAndView for later display.
+@Component
+public class ExecuteTimeInterceptor implements HandlerInterceptor {
+
+	private static final Logger log = LoggerFactory.getLogger(ExecuteTimeInterceptor.class);
+
+	// before the actual handler will be executed
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+
+		long startTime = System.currentTimeMillis();
+		request.setAttribute("startTime", startTime);
+		log.debug("Pre Handle method is Calling {}", startTime);
+		return true;
+	}
+
+	// after the handler is executed
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		long startTime = (Long) request.getAttribute("startTime");
+		long endTime = System.currentTimeMillis();
+		long executeTime = endTime - startTime;
+
+		log.debug("[" + handler + "] executeTime : " + executeTime + "ms");
+	}
+
+}

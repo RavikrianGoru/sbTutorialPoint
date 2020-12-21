@@ -1,0 +1,17 @@
+package com.rk.springboot.service;
+
+import java.util.HashMap;
+
+import org.springframework.stereotype.Service;
+
+import com.rk.springboot.model.Account;
+
+@Service
+public class AccountService {
+
+	private HashMap<Integer, Account> accountsRepo = new HashMap<>();
+	public Account add(int id, String name, double balance )
+	{
+		
+	}
+}

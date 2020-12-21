@@ -1,0 +1,4 @@
+spring.application.name = sampleSbApp
+server.port = 9099
+logging.file.path=D:\wrkspace\sample
+logging.file.name=sample.log

@@ -1,0 +1,10 @@
+package com.rk.springboot.sample.interceptor;
+
+public class ExecuteTimeInterceptor {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

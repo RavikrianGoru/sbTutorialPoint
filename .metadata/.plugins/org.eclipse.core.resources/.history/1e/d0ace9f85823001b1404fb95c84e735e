@@ -1,0 +1,22 @@
+package com.rk.springboot.service;
+
+import com.rk.springboot.model.Employee;
+
+public class EmployeeService {
+
+	public Employee createEmployee(String empID, String firstName, String secondName) 
+	{
+		Employee e = new Employee();
+		e.setEmpID(empID);
+		e.setFirstName(firstName);
+		e.setSecondName(secondName);
+		return e;
+	}
+	
+	
+	public Employee deleteEmployee(String empID)
+	{
+		
+	}
+
+}

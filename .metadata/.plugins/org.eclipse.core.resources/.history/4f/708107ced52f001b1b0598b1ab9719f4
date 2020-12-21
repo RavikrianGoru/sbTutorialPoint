@@ -1,0 +1,54 @@
+package com.rk.springboot.sample;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SampleApplication implements CommandLineRunner,ApplicationRunner{
+
+	
+	@Value("${spring.application.name:demoservice}")
+	private String appName;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(SampleApplication.class, args);
+		SampleApplication sampleApplication = new SampleApplication();
+		System.out.println("AppName:"+sampleApplication.appName);
+	}
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		for(String each:args.getSourceArgs())
+		{
+			System.out.println(each);
+		}
+		System.out.println("This will extcute after app startup : ApplicationRunner");
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("This will extcute after app startup : CommandLineRunner");
+		for(String each:args)
+		{
+			System.out.println(each);
+		}
+		
+	}
+
+	
+	/*
+
+	mvn clean install
+	java -jar sample-0.0.1-SNAPSHOT.jar --server.port=8081 --name=ravi --age=20 --debug
+	
+	
+
+
+
+	 */
+	
+}

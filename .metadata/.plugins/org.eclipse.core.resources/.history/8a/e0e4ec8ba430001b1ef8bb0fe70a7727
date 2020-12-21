@@ -1,0 +1,5 @@
+spring.main.banner-mode=off
+spring.main.log-startup-info=false
+
+sample.app.endpoint= http://localhost:9090/products
+server.port = 8080

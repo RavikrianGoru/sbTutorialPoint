@@ -1,0 +1,15 @@
+Soap Webservice:
+===============
+OpenJdk (latest) - 15
+Eclipse (latest)
+Apache Tomcat
+Maven (latest)
+===============
+
+1) Map Tomcat server in Eclipse.
+start tomcat and open webpage localhost:8080 if you face any issue means eclipse did not copy apps from tomcat to eclipse server path.
+Copy ROOT from apache tomcat folder to D:\wrkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps
+Now you can access localhost:8080
+
+
+

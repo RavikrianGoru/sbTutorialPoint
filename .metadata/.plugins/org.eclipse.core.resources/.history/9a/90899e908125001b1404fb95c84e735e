@@ -1,0 +1,33 @@
+package com.rk.springboot;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockserver.integration.ClientAndServer;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@ActiveProfiles("test")
+class SbAopApplicationTests {
+
+	private static ClientAndServer mockServer;
+	
+	
+	@BeforeAll
+	public static void startServer()
+	{
+		mockServer= ClientAndServer.startClientAndServer(8081)
+	}
+	
+	
+	@Test
+	void contextLoads() {
+		System.out.println("");
+	}
+
+}

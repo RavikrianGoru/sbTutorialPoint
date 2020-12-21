@@ -1,0 +1,12 @@
+package com.rk.springboot.consumeRws;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ViewController {
+
+	public String viewProducts()
+	{
+		return "view-products";
+	}
+}

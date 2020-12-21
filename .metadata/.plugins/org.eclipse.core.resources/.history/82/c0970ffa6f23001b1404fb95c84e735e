@@ -1,0 +1,11 @@
+package com.rk.springboot.model;
+
+import java.text.DecimalFormat;
+
+public class Account {
+	private int id;
+	private String name;
+	private String[] manDocs;
+	private double blance;
+
+}

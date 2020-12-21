@@ -1,0 +1,15 @@
+package com.rk.springboot.retry.service;
+
+public class BackendAdapterImpl implements BackendAdapter {
+
+	@Override
+	public String getBackendResponse(boolean simulateretry, boolean simulateretryfallback) {
+		return null;
+	}
+
+	@Override
+	public String getBackendResponseFallback(RuntimeException e) {
+		return null;
+	}
+
+}

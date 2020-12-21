@@ -1,0 +1,335 @@
+
+1) 
+lazyInitialization method on SpringApplicationBuilder
+or
+setLazyInitialization method on SpringApplication.
+or
+spring.main.lazy-initialization=true
+
+
+
+2) Core Spring annotations
+	@Required on setter method
+	@Autowired on setter method, instance variable, constructor
+	@Configuration on class
+	@ComponentScan on class
+	@Bean on method : It tells the method to produce a bean to be managed by Spring Container.
+	
+3) Spring Framework Stereotype Annotations
+	@Component on class : It is used to mark a Java class as a bean
+	@Controller on class : It marks a class as a web request handler. It is often used to serve web pages.
+		It is mostly used with @RequestMapping annotation.
+	@Service: It is also used at class level. It tells the Spring that class contains the business logic.
+	@Repository on class :The repository is a DAOs (Data Access Object) that access the database directly. 
+	
+4) Spring Boot Annotations
+	@EnableAutoConfiguration: this is older one for auto config beans that is present in classpath. latest one @SpringBootApplication.
+	@SpringBootApplication:  It is a combination of three annotations @EnableAutoConfiguration, @ComponentScan, and @Configuration.
+	
+5) Spring MVC and REST Annotations
+	@RequestMapping: on class , method
+	@GetMapping: older one is @RequestMapping(method = RequestMethod.GET)
+	@PostMapping: for create operation.@RequestMapping(method = RequestMethod.POST)
+	@PutMapping: for create or update operation. older one is @RequestMapping(method = RequestMethod.PUT)
+	@DeleteMapping: older one is @RequestMapping(method = RequestMethod.DELETE)
+	@PatchMapping: older one is @RequestMapping(method = RequestMethod.PATCH)
+	@RequestBody: 
+	@ResponseBody:
+	@PathVariable: in method. It is used to extract the values from the URI
+	@RequestParam: in method. It is used to extract the query parameters form the URL
+	@RequestHeader: in method. It is used to get the details about the HTTP request headers.
+	@RestController: It can be considered as a combination of @Controller and @ResponseBody annotations.
+	@RequestAttribute:
+
+6) SpringBoot Application properties
+
+	#configuring application name  
+		spring.application.name = demoApplication  
+	#configuring port  
+		server.port = 8081	
+	
+	There are sixteen categories of Spring Boot Property are as follows:
+	Core Properties
+	Cache Properties
+	Mail Properties
+	JSON Properties
+	Data Properties
+	Transaction Properties
+	Data Migration Properties
+	Integration Properties
+	Web Properties
+	Templating Properties
+	Server Properties
+	Security Properties
+	RSocket Properties
+	Actuator Properties
+	DevTools Properties
+	Testing Properties
+
+7) Spring Data JPA
+Spring Data JPA handles most of the complexity of JDBC-based database access and ORM (Object Relational Mapping). It reduces the boilerplate code required by JPA. It makes the implementation of your persistence layer easier and faster.
+
+Generated Queries: Another feature of Spring Data JPA is the generation of database queries based on the method name. If the query is not too complex, we need to define a method on our repository interface with the name that starts with findBy. After defining the method, Spring parses the method name and creates a query for it. 
+	For example:
+	public interface EmployeeRepository extends CrudRepository<Employee, Long>   
+	{  
+	Employee findByName(String name);  
+	} 	
+
+8) Spring Data Repository
+	CrudRepository
+	PagingAndSortingRepository
+	JpaRepository
+
+9) Application Runner
+Application Runner is an interface used to execute the code after the Spring Boot application started. 
+
+@SpringBootApplication
+public class DemoApplication implements ApplicationRunner {
+   public static void main(String[] args) {
+      SpringApplication.run(DemoApplication.class, args);
+   }
+   @Override
+   public void run(ApplicationArguments arg0) throws Exception {
+      System.out.println("Hello World from Application Runner");
+   }
+   
+10) Command Line Runner
+Command Line Runner is an interface. It is used to execute the code after the Spring Boot application started. 
+
+@SpringBootApplication
+public class DemoApplication implements CommandLineRunner {
+   public static void main(String[] args) {
+      SpringApplication.run(DemoApplication.class, args);
+   }
+   @Override
+   public void run(String... arg0) throws Exception {
+      System.out.println("Hello world from Command Line Runner");
+   }
+   
+11) Command Line Properties
+Spring Boot application converts the command line properties into Spring Boot Environment properties.
+Command line properties take precedence over the other property sources. 
+
+> java -jar sampleApp.jar --server.port=8081
+
+* We can provide more than one application properties by using the delimiter −.
+
+12) Properties File
+Properties files are used to keep ‘N’ number of properties in a single file to run the application in a different environment. In Spring Boot, properties are kept in the application.properties file under the classpath.
+
+server.port = 9090
+spring.application.name = demoservice
+
+13) Externalized Properties
+Instead of keeping the properties file under classpath, we can keep the properties in different location or path. While running the JAR file, we can specify the properties file path.
+
+> java -jar sampleApp.jar -Dspring.config.location = D:\appconfig\application.properties
+
+Use of @Value Annotation
+The @Value annotation is used to read the environment or application property value in Java code.
+
+Syntax:
+@Value("${property_key_name}")
+
+Ex:
+@Value("${spring.application.name}")
+
+
+public class DemoApplication {
+   @Value("${spring.application.name}")
+   private String name;
+   public static void main(String[] args) {
+.
+.
+.
+.
+
+*  If the property is not found while running the application, Spring Boot throws the Illegal Argument exception as Could not resolve placeholder 'spring.application.name' in value "${spring.application.name}"
+
+To resolve the placeholder issue, we can set the default value for the property 
+Syntax:
+@Value("${property_key_name:default_value}")
+Ex:
+@Value("${spring.application.name:demoservice}")   
+
+
+14) Spring Boot Active Profile
+	application.properties
+	application-dev.properties
+	application-sit.properties
+	application-uat.properties
+	application-prod.properties
+	
+	> java -jar sample.jar --spring.profiles.active=dev
+
+15) Logging
+	logging.file.path=D:\wrkspace\sample
+	logging.file.name=sample.log
+	
+	or
+	logback.xml
+16) RestAPI ref: sample app
+
+17) Exception handling
+	The @ControllerAdvice is an annotation, to handle the exceptions globally.
+	The @ExceptionHandler is an annotation used to handle the specific exceptions and sending the custom responses to the client.
+	ref: sample app
+18) Interceptor
+	The Interceptor in Spring Boot to perform operations under the following situations −
+		Before sending the request to the controller
+		Before sending the response to the client
+For example, you can use an interceptor to add the request header before sending the request to the controller and add the response header before sending the response to the client.
+	ref: Interceptor app
+
+19) Servlet Filter:
+	ref: Interceptor app
+	
+20) Rest Template:
+Rest Template is used to create applications that consume RESTful Web Services. You can use the exchange() method to consume the web services for all HTTP methods.
+Have to follow the given points to consume the API −
+	Autowired the Rest Template Object.
+	Use HttpHeaders to set the Request Headers.
+	Use HttpEntity to wrap the request object.
+	Provide the URL, HttpMethod, and Return type for Exchange() method.	
+
+21) File Handling: Upload & Download
+22) Service Components are the class file which contains @Service annotation. These class files are used to write business logic in a different layer, separated from @RestController class file
+
+23) Consuming restful webservices by using jQuery, AJAX.
+Ref: https://spring.io/guides/gs/rest-service-cors/
+Expected Issue: Access to XMLHttpRequest at 'http://localhost:9090/products' from origin 'http://localhost:8080' has been blocked by 
+				CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' 
+				header is present on the requested resource.
+
+For example, your web application is running on 8080 port and by using JavaScript you are trying to consuming RESTful web services from 9090 port. Under such situations, you will face the Cross-Origin Resource Sharing security issue on your web browsers.
+
+Two requirements are needed to handle this issue −
+	RESTful web services should support the Cross-Origin Resource Sharing.
+	RESTful web service application should allow accessing the API(s) from the 8080 port.
+
+
+Cross-Origin Resource Sharing (CORS):
+------------------------------------
+Cross-Origin Resource Sharing (CORS) is a security concept that allows restricting the resources implemented in web browsers. 
+It prevents the JavaScript code producing or consuming the requests against different origin.
+
+
+Ex: @CrossOrigin(origins = "http://localhost:8080")
+
+* Method level: @CrossOrigin annotation enables cross-origin resource sharing only for this specific method.
+* Controller class level: To enable CORS on all handler methods of this class.
+* Global CORS configuration
+Ref: sample.jar ---> SampleApplication.java and ProductServiceController.jar 
+	 consumeRws.jar --> view-products.html and add-product.html code
+
+24) Internationalization: Internationalization is a readiness of Localization.
+	
+
+24) Scheduling:
+Scheduling is a process of executing the tasks for the specific time period. Spring Boot provides a good support to write a scheduler on the Spring applications.
+@Scheduled(cron = "0 * 16 * * ?")
+@Scheduled(fixedDelay = 1000, initialDelay = 3000)
+
+25) HTTPS:
+	
+	1) Generate self signed ssl using keytool
+	open cmd prompt:
+		sample cmds
+		
+		> C:\Users\LENOVO\Desktop\ssl_certs>keytool -genkey -alias selfsigned_localhost_sslserver -keyalg RSA -keysize 2048 -validity 700 -keypass changeit -storepass changeit -keystore ssl-server.jks
+
+		What is your first and last name?
+		  [Unknown]:  goru
+		What is the name of your organizational unit?
+		  [Unknown]:  dbs
+		What is the name of your organization?
+		  [Unknown]:  dbs
+		What is the name of your City or Locality?
+		  [Unknown]:  hyd
+		What is the name of your State or Province?
+		  [Unknown]:  tn
+		What is the two-letter country code for this unit?
+		  [Unknown]:  in
+		Is CN=goru, OU=dbs, O=dbs, L=hyd, ST=tn, C=in correct?
+		  [no]:  yes		
+
+	2) To view what is inside this keystore we can again use the keytool -list command as bellow.
+		
+		>C:\Users\LENOVO\Desktop\ssl_certs>keytool -list -keystore ssl-server.jks
+		Enter keystore password:
+		Keystore type: PKCS12
+		Keystore provider: SUN
+		
+		Your keystore contains 1 entry
+		
+		selfsigned_localhost_sslserver, Dec 5, 2020, PrivateKeyEntry,
+		Certificate fingerprint (SHA-256): AA:4E:09:FF:14:03:A0:18:68:11:54:04:7F:DE:36:F1:30:5E:47:67:F8:13:3A:CB:54:9D:9B:74:FF:E2:9A:F2
+		
+26) Eureka Serve:
+	Eureka Server is an application that holds the information about all client-service applications.
+	Every Micro service will register into the Eureka server and Eureka server knows all the client applications running on each port and IP address. Eureka Server is also known as Discovery Server.
+	Eureka Client shoud be registered itself in server.
+
+27) Zuul Server is a gateway application that handles all the requests and does the dynamic routing of microservice applications. The Zuul Server is also known as Edge Server.
+	
+	For Example, /api/user is mapped to the user service and /api/products is mapped to the product service and Zuul Server dynamically routes the requests to the respective backend application.
+
+28) Spring Boot - Cloud Configuration Server:
+Spring Cloud Configuration Server is a centralized application that manages all the application related configuration properties.
+
+	
+
+
+====================================================Thymeleaf====================================================
+ It is a Java-based library used to create a web application. It provides a good support for serving a XHTML/HTML5 in web applications.
+
+Thymeleaf Templates
+	Thymeleaf converts your files into well-formed XML files. It contains 6 types of templates as given below −
+		XML
+		Valid XML
+		XHTML
+		Valid XHTML
+		HTML5
+		Legacy HTML5
+	All templates, except Legacy HTML5, are referring to well-formed valid XML files. Legacy HTML5 allows us to render the HTML5 tags in web page including not closed tags.
+
+Web Application
+	We can use Thymeleaf templates to create a web application in Spring Boot. You will have to follow the below steps to create a web application in Spring Boot by using Thymeleaf.
+
+Ref: any thymeleaf tutorials
+
+		
+====================================================AOP====================================================
+
+A typical Java application has the following layers:
+	Web Layer: It exposes the services using the REST or web application.
+	Business Layer: It implements the business logic of an application.
+	Data Layer: It implements the persistence logic of the application.
+
+The responsibility of each layer is different, but there are a few common aspects that apply to all layers are Logging, Security, validation, caching, etc. These common aspects are called cross-cutting concerns.
+
+Aspect-Oriented Programming (AOP) provides a solution to implement cross-cutting concerns.
+
+Implement the cross-cutting concern as an aspect.
+Define pointcuts to indicate where the aspect has to be applied.
+
+1) Aspect: An aspect is a module that encapsulates advice and pointcuts and provides cross-cutting.
+An application can have any number of aspects. 
+class annotated with @Aspect annotation
+
+2) Pointcut: A pointcut is an expression that selects one or more join points where advice is executed. We can define pointcuts using expressions or patterns.
+
+3) Join point: A join point is a point in the application where we apply an AOP aspect. Or it is a specific execution instance of an advice.
+
+4) Advice: The advice is an action that we take either before or after the method execution. The action is a piece of code that invokes during the program execution.
+There are five types of advices in the Spring AOP framework: 
+			before	@Before
+			after	@After
+			after-returning
+			after-throwing
+			around advice.
+6) Target object: An object on which advices are applied, is called the target object. Target objects are always a proxied It means a subclass is created at run time in which the target method is overridden, and advices are included based on their configuration.
+
+7)Weaving: It is a process of linking aspects with other application types. We can perform weaving at run time, load time, and compile time.
+

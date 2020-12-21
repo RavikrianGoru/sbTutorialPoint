@@ -1,0 +1,8 @@
+package com.rk.springboot.aspect;
+
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@Aspect
+public class EmployeeServiceAspect {
+
+}

@@ -1,0 +1,5 @@
+package com.rk.springboot.sample.controller;
+
+public class ProductServiceController {
+
+}

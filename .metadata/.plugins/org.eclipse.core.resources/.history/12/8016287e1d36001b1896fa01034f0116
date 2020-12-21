@@ -1,0 +1,5 @@
+package com.rk.springboot.scheduler.job;
+
+public class JobScheduler {
+
+}

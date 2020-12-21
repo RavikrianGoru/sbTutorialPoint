@@ -1,0 +1,22 @@
+package com.rk.springboot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rk.springboot.model.Employee;
+import com.rk.springboot.service.EmployeeService;
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	EmployeeService empService;
+	
+	
+	public Employee addEmployee(@RequestParam("empID") String empID, @RequestParam("firstName") String firstName, @RequestParam("secondName") String secondName)
+	{
+		
+	}
+
+}

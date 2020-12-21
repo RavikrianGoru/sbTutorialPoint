@@ -1,0 +1,8 @@
+package thymeleaf;
+
+import org.springframework.stereotype.Controller;
+
+@Controllerr
+public class WebController {
+
+}

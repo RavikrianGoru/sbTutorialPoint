@@ -1,0 +1,5 @@
+package com.rk.springboot.eureka.controller;
+
+public class HelloController {
+
+}

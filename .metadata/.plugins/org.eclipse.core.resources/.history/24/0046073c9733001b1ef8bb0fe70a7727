@@ -1,0 +1,5 @@
+package com.rk.springboot.consumeRws;
+
+public class ViewController {
+
+}

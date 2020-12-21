@@ -1,0 +1,31 @@
+package com.rk.springboot.interceptor.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rk.springboot.interceptor.model.Emp;
+
+@RestController
+public class EmpController {
+
+	private static Map<String, Emp> empRepo = new HashMap();
+	static {
+		Emp honey = new Emp();
+		honey.setId("1");
+		honey.setName("Honey");
+		productRepo.put(honey.getId(), honey);
+
+		Emp almond = new Emp();
+		almond.setId("2");
+		almond.setName("Almond");
+		productRepo.put(almond.getId(), almond);
+
+		Emp ravi = new Emp();
+		ravi.setId("3");
+		ravi.setName("Ravi");
+		productRepo.put(ravi.getId(), ravi);
+
+	}
+}

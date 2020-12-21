@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+D:\wrkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1283036921.index
+\app1\src\main\java
+D:\wrkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2150067150.index
+\app1\src\main\java
+D:\wrkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\916917939.index
+\SOAPExampleClient\src

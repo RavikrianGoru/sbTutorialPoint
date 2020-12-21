@@ -1,0 +1,5 @@
+package com.rk.springboot.service;
+
+public interface EmpService {
+
+}

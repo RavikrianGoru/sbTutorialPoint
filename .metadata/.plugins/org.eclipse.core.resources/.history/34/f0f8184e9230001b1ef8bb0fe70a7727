@@ -1,0 +1,33 @@
+package com.rk.springboot.sample.interceptor;
+
+import java.util.Calendar;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.AsyncHandlerInterceptor;
+
+@Component
+public class MaintenanceInterceptor implements AsyncHandlerInterceptor {
+	private static final Logger log = LoggerFactory.getLogger(MaintenanceInterceptor.class);
+
+	// before the actual handler will be executed
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		Calendar cal = Calendar.getInstance();
+		int hour = cal.get(cal.HOUR_OF_DAY);
+
+		if (hour >= maintenanceStartTime && hour <= maintenanceEndTime) {
+			// maintenance time, send to maintenance page
+			response.sendRedirect(maintenanceMapping);
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+
+}

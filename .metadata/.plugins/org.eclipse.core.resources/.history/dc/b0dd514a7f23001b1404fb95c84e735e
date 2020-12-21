@@ -1,0 +1,42 @@
+package com.rk.springboot.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.rk.springboot.model.Account;
+import com.rk.springboot.service.AccountService;
+
+@RestController
+public class AccountController {
+
+	@Autowired
+	private AccountService accountService;
+
+	@RequestMapping(value = "/add/account", method = RequestMethod.GET)
+	public Account createAccount(@RequestParam("id") Integer id, @RequestParam("name") String name,
+			@RequestParam("amount") double amount) {
+		Account obj = accountService.add(id, name, amount);
+		return obj;
+	}
+
+	@RequestMapping(value = "/delete/account", method = RequestMethod.GET)
+	public Account deleteAccount(@RequestParam("id") int id) {
+		Account obj = accountService.delete(id);
+		return obj;
+	}
+
+	@RequestMapping(value = "/checkbalance/account", method = RequestMethod.GET)
+	public Double checkBalance(@RequestParam("id") int id) {
+		Double balance = accountService.getBalance(id);
+		return balance;
+	}
+	@RequestMapping(value = "/count/account", method = RequestMethod.GET)
+	public Integer checkBalance() {
+		Integer count = accountService.getNumberOfRecods();
+		return count;
+	}
+
+}

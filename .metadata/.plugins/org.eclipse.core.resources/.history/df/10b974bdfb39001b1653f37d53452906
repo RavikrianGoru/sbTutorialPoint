@@ -1,0 +1,5 @@
+package com.rk.springboot.retry.controller;
+
+public class MyRetryRestController {
+
+}

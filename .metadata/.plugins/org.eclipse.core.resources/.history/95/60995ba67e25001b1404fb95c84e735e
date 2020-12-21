@@ -1,0 +1,15 @@
+package com.rk.springboot;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@RunWith
+@SpringBootTest
+class SbAopApplicationTests {
+
+	@Test
+	void contextLoads() {
+		System.out.println("");
+	}
+
+}

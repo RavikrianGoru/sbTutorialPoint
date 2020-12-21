@@ -1,0 +1,22 @@
+package com.rk.springboot.internalization.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ViewContoller {
+
+	@Autowired
+    MessageSource messageSource;
+     
+    @GetMapping("/")
+    public String index(Locale locale) {
+        return messageSource.getMessage("error.notfound", null, locale);
+    }
+	
+	@RequestMapping("locale")
+	public String locale()
+	{
+		return "locale";
+	}
+}

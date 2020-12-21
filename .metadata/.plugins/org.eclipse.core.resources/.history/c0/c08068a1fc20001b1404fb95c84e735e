@@ -1,0 +1,5 @@
+package com.rk.springboot.controller;
+
+public class DemoRestController {
+
+}

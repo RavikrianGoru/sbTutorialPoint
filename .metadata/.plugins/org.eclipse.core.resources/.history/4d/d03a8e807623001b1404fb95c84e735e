@@ -1,0 +1,40 @@
+package com.rk.springboot.service;
+
+import java.util.HashMap;
+import java.util.Objects;
+
+import org.springframework.stereotype.Service;
+
+import com.rk.springboot.model.Account;
+
+@Service
+public class AccountService {
+
+	private HashMap<Integer, Account> accountsRepo = new HashMap<>();
+
+	public Account add(int id, String name, double balance) {
+		Account a = new Account(id, name, balance);
+		accountsRepo.put(id, a);
+		return accountsRepo.get(id);
+	}
+
+	public Account delete(int id) {
+		Account a = accountsRepo.remove(id);
+		return a;
+	}
+
+	public int getNumberOfRecods() {
+		return accountsRepo.size();
+	}
+
+	public double getBalance(int id) {
+		Account obj = accountsRepo.get(id);
+		if (Objects.nonNull(obj)) {
+			System.out.println(id + "Account's balance is " + obj.getBalance());
+			return obj.getBalance();
+		} else {
+			System.out.println("Account number is invalid.");
+			return -1;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+package com.rk.springboot.scheduler.job;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+@Component
+public class JobScheduler {
+
+	//Execute the task every minute starting at 9:00 AM and ending at 9:59 AM, every day
+	@Scheduled(cron = "0 * 9 * * ?")
+	public void cornJobScdlr()
+	{
+		
+	}
+}

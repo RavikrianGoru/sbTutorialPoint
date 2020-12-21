@@ -1,0 +1,29 @@
+package com.rk.springboot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class SbTomcatWarApplication extends SpringBootServletInitializer{
+
+	public static void main(String[] args) {
+		SpringApplication.run(SbTomcatWarApplication.class, args);
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(SbTomcatWarApplication.class);
+	}
+
+	
+	// http://localhost:8080/hello
+	
+	//TO make War deployment in Tomcat
+	//	1) SpringBootServletInitializer and override configure method
+	//  2) upate pom.xml 
+	//		Marked the embedded servlet container as provided
+	//		packaging to war	
+	
+}

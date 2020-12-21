@@ -1,0 +1,5 @@
+package com.rk.springboot.interceptor;
+
+public class SpringBootApplication {
+
+}

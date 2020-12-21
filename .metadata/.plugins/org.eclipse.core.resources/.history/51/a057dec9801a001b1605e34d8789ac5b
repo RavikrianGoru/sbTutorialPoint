@@ -1,0 +1,14 @@
+package com.rk.soap.model;
+
+import java.io.Serializable;
+
+public class Person implements Serializable {
+
+	private static final long serialVersionUID = -45678988227254L;
+	
+	private String name;
+	private int age;
+	private int id;
+	
+
+}

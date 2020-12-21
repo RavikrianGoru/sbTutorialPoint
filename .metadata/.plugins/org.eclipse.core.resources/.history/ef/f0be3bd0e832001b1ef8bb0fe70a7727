@@ -1,0 +1,11 @@
+package com.rk.springboot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ServiceComponentApp {
+	public static void main(String[] args) {
+		SpringApplication.run(ServiceComponentApp.class, args);
+	}
+}

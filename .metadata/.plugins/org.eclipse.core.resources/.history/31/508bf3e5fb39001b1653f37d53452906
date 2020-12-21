@@ -1,0 +1,9 @@
+package com.rk.springboot.retry.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MyRetryRestController {
+	
+
+}

@@ -1,0 +1,30 @@
+package com.rk.springboot.service;
+
+import java.util.HashMap;
+
+import org.springframework.stereotype.Service;
+
+import com.rk.springboot.model.Employee;
+
+@Service
+public class EmployeeService {
+	
+	static HashMap<String, Employee> empRepo=new HashMap<>();
+
+	public Employee createEmployee(String empID, String firstName, String secondName) 
+	{
+		Employee e = new Employee();
+		e.setEmpID(empID);
+		e.setFirstName(firstName);
+		e.setSecondName(secondName);
+		return empRepo.put(e.getEmpID(), e);
+		
+	}
+	
+	
+	public Employee deleteEmployee(String empID)
+	{
+		
+	}
+
+}

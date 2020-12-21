@@ -1,0 +1,15 @@
+package com.rk.springboot.retry.exception;
+
+public class RemoteServiceNotAvailableException extends RuntimeException{
+	
+	
+	public RemoteServiceNotAvailableException()
+	{
+		
+	}
+
+	public RemoteServiceNotAvailableException(String message) {
+		super(message);
+	}
+	
+}

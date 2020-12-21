@@ -1,0 +1,17 @@
+package com.rk.springboot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+@SpringBootApplication
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+public class SbAopApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SbAopApplication.class, args);
+	}
+
+}
+
+//http://localhost:8080/add/employee?empID=%22102%22&firstName=%22fname%22&secondName=%22sname%22

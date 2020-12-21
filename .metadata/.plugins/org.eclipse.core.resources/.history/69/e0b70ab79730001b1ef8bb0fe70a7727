@@ -1,0 +1,5 @@
+package com.rk.springboot.interceptor.model;
+
+public class Emp {
+
+}

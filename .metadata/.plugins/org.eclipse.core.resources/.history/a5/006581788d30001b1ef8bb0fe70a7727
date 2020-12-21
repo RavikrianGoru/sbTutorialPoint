@@ -1,0 +1,6 @@
+package com.rk.springboot.sample.interceptor;
+
+public class ExecuteTimeInterceptor extends AsyncHandlerInterceptor{
+
+
+}

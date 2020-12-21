@@ -1,0 +1,5 @@
+package com.rk.soap.service;
+
+public interface PersonService {
+
+}

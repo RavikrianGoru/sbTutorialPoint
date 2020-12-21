@@ -1,0 +1,12 @@
+package com.rk.springboot.interceptor;
+@Configuration
+public class InterceptorConfig extends WebMvcConfigurerAdapter {
+
+	@Autowired
+	LoggerInterceptor logInterceptor;
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(logInterceptor);
+	}
+}

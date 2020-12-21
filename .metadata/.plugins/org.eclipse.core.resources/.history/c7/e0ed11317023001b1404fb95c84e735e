@@ -1,0 +1,11 @@
+package com.rk.springboot.model;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data @NoArgsConstructor
+public class Account {
+	private int id;
+	private String name;
+	private double blance;
+}
